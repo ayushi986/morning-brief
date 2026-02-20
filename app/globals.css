@@ -1,26 +1,126 @@
+/* app/globals.css */
+/* These are the global styles that apply to the whole app.
+   Think of this as the magazine's "house style" — decisions that are
+   consistent everywhere, like paper colour, base font size, link colours. */
+
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/* CSS Custom Properties (Variables)
+   These are like named paint colours — define them once, use everywhere. */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* The warm off-white that feels like quality magazine paper — slightly warmer than before */
+  --background: #F8F4EE;
+
+  /* Rich near-black for text — a warm brown-black, not harsh pure black */
+  --foreground: #1A1009;
+
+  /* Our headline font variable (set up in layout.tsx) */
+  --font-heading: var(--font-playfair);
+
+  /* Our body font variable (set up in layout.tsx) */
+  --font-body: var(--font-inter);
+
+  /* Warm grey for secondary text (bylines, captions, metadata) */
+  --text-muted: #9B9590;
+
+  /* Warm border colour for dividers and card edges */
+  --border: #EAE6DE;
+
+  /* Gold accent used on buttons and highlights */
+  --accent-gold: #C5A55A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ------------------------------------------------------------------ */
+/* Base Page Styles */
+/* ------------------------------------------------------------------ */
+html {
+  /* Prevent horizontal scrollbar from appearing when things slide in */
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  /* Very subtle paper texture via a repeating gradient pattern */
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(197, 165, 90, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(197, 165, 90, 0.02) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+/* ------------------------------------------------------------------ */
+/* Box sizing — makes all elements easier to reason about */
+/* ------------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Make links inherit the parent colour instead of defaulting to blue */
+a {
+  color: inherit;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography refinements */
+/* ------------------------------------------------------------------ */
+
+/* Improve rendering of Playfair Display headlines */
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations */
+/* ------------------------------------------------------------------ */
+
+/* Gentle pulsing — used for loading dots and the "↓ Start below" hint */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.5s ease-in-out infinite;
+}
+
+/* Fade-in + gentle rise — used when articles appear on screen */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Staggered fade-in for article cards — each one appears slightly after the previous */
+.animate-fade-in:nth-child(1) { animation-delay: 0.05s; }
+.animate-fade-in:nth-child(2) { animation-delay: 0.12s; }
+.animate-fade-in:nth-child(3) { animation-delay: 0.19s; }
+.animate-fade-in:nth-child(4) { animation-delay: 0.26s; }
+.animate-fade-in:nth-child(5) { animation-delay: 0.33s; }
+.animate-fade-in:nth-child(6) { animation-delay: 0.40s; }
+
+/* Subtle shimmer on gold elements */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Spinning — used for any spinner elements */
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
