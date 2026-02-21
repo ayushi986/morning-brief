@@ -71,18 +71,29 @@ export default function DigestView({ digest }: DigestViewProps) {
         {/* The article grid — 2 columns on desktop, 1 on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {articles.map((article, index) => {
-            // The FIRST article always gets the full-width "feature" treatment —
-            // it's the "cover story" of this edition.
-            // All other articles sit side-by-side in the 2-column grid.
-            // (Previously we also made the last article full-width if the count was odd,
-            // but that caused the second article to sit alone with an empty column beside it.)
+            // Article 0 is always the full-width "cover story".
             const isFirstArticle = index === 0;
+
+            // After the cover story, the remaining articles go into a 2-column grid.
+            // If there's an odd number of remaining articles (e.g. 1 or 3),
+            // the last one would sit alone with an empty column beside it.
+            // To fix that, we make the last article full-width — but ONLY in that case.
+            //
+            // Examples:
+            //   2 articles total → 1 cover + 1 remaining (odd) → last is full-width ✅
+            //   3 articles total → 1 cover + 2 remaining (even) → both pair up ✅
+            //   4 articles total → 1 cover + 3 remaining (odd) → last is full-width ✅
+            //   5 articles total → 1 cover + 4 remaining (even) → all pair up ✅
+            const remainingCount = articles.length - 1; // everything after the cover
+            const isLastArticle = index === articles.length - 1;
+            const remainingIsOdd = remainingCount % 2 !== 0;
+            const isLoneLastArticle = isLastArticle && remainingIsOdd && articles.length > 1;
 
             return (
               <ArticleCard
                 key={article.sourceUrl + index}
                 article={article}
-                isFeature={isFirstArticle}
+                isFeature={isFirstArticle || isLoneLastArticle}
               />
             );
           })}
