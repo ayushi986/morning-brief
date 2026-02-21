@@ -14,24 +14,38 @@ import { RawNewsletter, RawVideo, ArticleSummary, BigTheme } from '@/types';
 const MODEL = 'claude-sonnet-4-5-20250929';
 
 // -------------------------------------------------------------------
-// Read the API key directly from .env.local as a reliable fallback.
+// Get the Claude API key — works in BOTH local dev and on Vercel.
 //
-// WHY DO THIS? Two reasons:
+// WHY IS THIS A FUNCTION instead of a top-level constant?
+// Because if we did `const anthropic = new Anthropic(...)` at the top,
+// it would run the moment the file is imported — potentially before
+// Next.js has loaded any env vars. Moving it into a function means it
+// runs only when an actual API call is made.
 //
-// 1. Module-level initialization: if we did `const anthropic = new Anthropic(...)`
-//    at the top of the file, it would run at import time — potentially before
-//    Next.js has loaded .env.local. So we moved it into a function.
+// WHY TWO STRATEGIES?
 //
-// 2. Shell environment override: Claude Code (the tool used to build this app)
-//    sets ANTHROPIC_API_KEY to an EMPTY STRING in the shell environment.
-//    Next.js always prefers actual system environment variables over .env.local,
-//    so the empty string wins and our real key in .env.local gets ignored.
+// On Vercel (production): the API key is set in Vercel's dashboard
+// and injected into process.env — so we try that first.
 //
-// The solution: read .env.local ourselves and extract the key directly.
-// This bypasses both problems completely.
+// Locally (development): the Claude Code tool that was used to BUILD
+// this app sets ANTHROPIC_API_KEY to an empty string "" in the shell,
+// which Next.js picks up and puts into process.env — overriding the
+// real key in .env.local. So if process.env gives us an empty string,
+// we fall back to reading .env.local directly from disk, where the
+// real key lives.
+//
+// This means:
+//   - Vercel: process.env has the real key → ✅ works immediately
+//   - Local dev: process.env has "" → falls back to file read → ✅ works
 // -------------------------------------------------------------------
 function getApiKey(): string {
-  // First, try reading directly from .env.local — this is the most reliable source
+  // Step 1: Try process.env — this is where Vercel puts the key
+  const envKey = process.env.ANTHROPIC_API_KEY;
+  if (envKey && envKey.length > 0) return envKey;
+
+  // Step 2: Fall back to reading .env.local directly from disk.
+  // This handles local development where the shell may override process.env
+  // with an empty string, masking the real key in .env.local.
   try {
     const envPath = path.join(process.cwd(), '.env.local');
     const content = fs.readFileSync(envPath, 'utf8');
@@ -42,15 +56,11 @@ function getApiKey(): string {
       }
     }
   } catch {
-    // .env.local not found or not readable — fall through to process.env
+    // .env.local not found (normal on Vercel) — fall through to error
   }
 
-  // Fallback: try the environment variable (works in production/Vercel)
-  const envKey = process.env.ANTHROPIC_API_KEY;
-  if (envKey) return envKey;
-
   throw new Error(
-    'ANTHROPIC_API_KEY not found. Make sure it is in your .env.local file.'
+    'ANTHROPIC_API_KEY not found. On Vercel: add it in your project settings. Locally: add it to .env.local.'
   );
 }
 
