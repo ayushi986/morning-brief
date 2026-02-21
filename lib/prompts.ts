@@ -37,7 +37,7 @@ You MUST return a valid JSON object with EXACTLY this structure (no text outside
   "sourceName": "The name of the newsletter or YouTube channel",
   "sourceType": "youtube or newsletter",
   "emoji": "One relevant emoji that represents the content",
-  "summary": "A paragraph of 5-8 sentences. This is the main article. It should explain: what this is about, the key ideas, why it matters, anything surprising. Written in the engaging tone described above.",
+  "summary": "2 to 3 short paragraphs separated by \\n\\n. Each paragraph should be 2-3 sentences — short, punchy, readable. Structure: first paragraph = the hook (what this is and why it's interesting), second paragraph = the key ideas or details, third paragraph (optional) = broader significance or a surprising angle. Written in the engaging tone described above.",
   "takeaways": [
     "First crisp, specific takeaway (1 sentence)",
     "Second takeaway",
@@ -49,8 +49,8 @@ You MUST return a valid JSON object with EXACTLY this structure (no text outside
 EXAMPLE of a BAD summary (too thin, doesn't inform):
 "MKBHD reviewed the Galaxy S25 this week. He discussed the camera improvements and software updates. The video is worth watching if you're interested in Android phones."
 
-EXAMPLE of a GOOD summary (complete, engaging, reader is fully informed):
-"MKBHD's deep-dive into the Samsung Galaxy S25 lands with a more nuanced verdict than the marketing suggests. The camera hardware is genuinely excellent — low-light performance has taken a real leap, and the zoom is now competitive with iPhone in ways that would have seemed impossible two years ago. But Samsung's AI features, which dominate the launch messaging, mostly feel like gimmicks: half require a Samsung account to even try, and the ones that do work are things your phone could already do. The real story here is subtler — Samsung has quietly stripped back the software bloat that has plagued Galaxy phones for years, making this feel faster and lighter than any Galaxy in recent memory. If you're an Android person due for an upgrade, this is probably the best option right now. If you're an iPhone person, nothing here will make you switch — but it should make you nervous about the camera gap closing.";
+EXAMPLE of a GOOD summary (complete, engaging, reader is fully informed — note the paragraph breaks):
+"MKBHD's deep-dive into the Samsung Galaxy S25 lands with a more nuanced verdict than the marketing suggests. The camera hardware is genuinely excellent — low-light performance has taken a real leap, and the zoom is now competitive with iPhone in ways that would have seemed impossible two years ago.\n\nBut Samsung's AI features, which dominate the launch messaging, mostly feel like gimmicks: half require a Samsung account to even try, and the ones that do work are things your phone could already do.\n\nThe real story here is subtler — Samsung has quietly stripped back the software bloat that has plagued Galaxy phones for years, making this feel faster and lighter than any Galaxy in recent memory. If you're an Android person due for an upgrade, this is probably the best option right now."
 
 Always return only the JSON. No preamble, no explanation outside the JSON.`;
 

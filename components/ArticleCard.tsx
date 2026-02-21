@@ -112,20 +112,26 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
       {/* ---- Article body ---- */}
       <div className={`${isFeature ? 'p-8 md:p-10' : 'p-6 md:p-8'} pl-7 md:pl-9`}>
 
-        {/* The main summary — the article body, written by Claude.
-            Line-height of 1.85 is the "comfortable magazine" sweet spot.
-            The text is warm near-black, not pure black — feels less harsh. */}
-        <p
-          style={{
-            fontFamily: 'var(--font-inter)',
-            lineHeight: '1.85',
-            color: '#2D2820',
-            fontSize: isFeature ? '17px' : '15px',
-          }}
-          className="mb-7"
-        >
-          {article.summary}
-        </p>
+        {/* The main summary — split on double newlines so each paragraph breathes.
+            Claude is instructed to write 2-3 paragraphs separated by \n\n.
+            We split the string here and render each chunk as its own <p> tag —
+            because in HTML, whitespace is invisible unless you handle it in code.
+            space-y-4 adds 16px gap between paragraphs — comfortable magazine spacing. */}
+        <div className="mb-7 space-y-4">
+          {article.summary.split('\n\n').map((paragraph, i) => (
+            <p
+              key={i}
+              style={{
+                fontFamily: 'var(--font-inter)',
+                lineHeight: '1.85',
+                color: '#2D2820',
+                fontSize: isFeature ? '17px' : '15px',
+              }}
+            >
+              {paragraph.trim()}
+            </p>
+          ))}
+        </div>
 
         {/* ---- "In Brief" sidebar — the bullet takeaways ---- */}
         {/* Styled like a real magazine sidebar: slightly smaller type, left border rule */}
