@@ -71,18 +71,18 @@ export default function DigestView({ digest }: DigestViewProps) {
         {/* The article grid — 2 columns on desktop, 1 on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {articles.map((article, index) => {
-            // The FIRST article always gets the full-width "feature" treatment
+            // The FIRST article always gets the full-width "feature" treatment —
+            // it's the "cover story" of this edition.
+            // All other articles sit side-by-side in the 2-column grid.
+            // (Previously we also made the last article full-width if the count was odd,
+            // but that caused the second article to sit alone with an empty column beside it.)
             const isFirstArticle = index === 0;
-
-            // If there's an odd number of articles, the last one is also full-width
-            // (avoids a lonely half-width card at the end of the grid)
-            const isLastAndOdd = index === articles.length - 1 && articles.length % 2 !== 0 && articles.length > 1;
 
             return (
               <ArticleCard
                 key={article.sourceUrl + index}
                 article={article}
-                isFeature={isFirstArticle || isLastAndOdd}
+                isFeature={isFirstArticle}
               />
             );
           })}
