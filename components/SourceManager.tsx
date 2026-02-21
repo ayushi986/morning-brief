@@ -196,7 +196,7 @@ export default function SourceManager({
                 const dotColor = ACCENT_COLORS[index % ACCENT_COLORS.length];
 
                 return (
-                  <li key={url} className="flex items-center gap-3 group py-1.5">
+                  <li key={url} className="flex items-center gap-3 py-1.5">
                     {/* Small accent dot */}
                     <div
                       className="w-2 h-2 rounded-full flex-shrink-0"
@@ -212,26 +212,26 @@ export default function SourceManager({
                       {shortenUrl(url)}
                     </span>
 
-                    {/* Remove button — appears on hover */}
+                    {/* Delete button — always visible, turns red on hover */}
                     <button
                       onClick={() => removeNewsletter(url)}
+                      title="Remove this newsletter"
                       style={{
                         fontFamily: 'var(--font-inter)',
-                        fontSize: '11px',
-                        color: '#B0AAA0',
-                        opacity: 0,
+                        fontSize: '16px',
+                        lineHeight: 1,
+                        color: '#C8C0B4',
                         cursor: 'pointer',
                         background: 'none',
                         border: 'none',
-                        padding: 0,
-                        transition: 'color 0.15s, opacity 0.15s',
+                        padding: '0 2px',
+                        transition: 'color 0.15s',
                         flexShrink: 0,
                       }}
-                      className="group-hover:opacity-100"
                       onMouseOver={e => (e.currentTarget.style.color = '#E85D4A')}
-                      onMouseOut={e => (e.currentTarget.style.color = '#B0AAA0')}
+                      onMouseOut={e => (e.currentTarget.style.color = '#C8C0B4')}
                     >
-                      Remove
+                      ×
                     </button>
                   </li>
                 );
