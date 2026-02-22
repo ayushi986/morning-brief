@@ -102,7 +102,7 @@ export default function Masthead({ editionNumber, onRefresh, isLoading }: Masthe
               fontSize: '72px',
               fontWeight: 600,
             }}
-            className="leading-none block"
+            className="leading-[1.15] block"
           >
             Morning Brief
           </h1>
