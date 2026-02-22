@@ -32,8 +32,8 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
       `}
       style={{
         // Subtle outer shadow — gives the card depth, like paper lifting off the page
-        boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)',
-        border: '1px solid #EAE6DE',
+        boxShadow: '0 1px 3px rgba(159,18,57,0.04), 0 4px 16px rgba(159,18,57,0.03)',
+        border: '1px solid #F3E8E8',
       }}
     >
       {/* ---- The coloured header block ---- */}
@@ -43,7 +43,7 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
           background: isFeature
             ? `linear-gradient(135deg, ${hexToRgba(article.accentColor, 0.08)} 0%, transparent 60%)`
             : 'transparent',
-          borderBottom: '1px solid #EAE6DE',
+          borderBottom: '1px solid #F3E8E8',
         }}
         className={`${isFeature ? 'p-8 md:p-10' : 'p-6 md:p-8'} relative`}
       >
@@ -75,7 +75,7 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
         <h2
           style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.01em' }}
           className={`
-            font-bold text-[#1A1009] leading-tight mb-4
+            font-bold text-[#1A0A0A] leading-tight mb-4
             ${isFeature ? 'text-3xl md:text-[40px]' : 'text-2xl md:text-3xl'}
           `}
         >
@@ -91,7 +91,7 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
           />
           <p
             style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', letterSpacing: '0.05em' }}
-            className="text-[#9B9590] uppercase"
+            className="text-[#9CA3AF] uppercase"
           >
             From{' '}
             <a
@@ -99,9 +99,9 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium transition-colors"
-              style={{ color: '#5A5550' }}
+              style={{ color: '#6B5B5B' }}
               onMouseOver={e => (e.currentTarget.style.color = article.accentColor)}
-              onMouseOut={e => (e.currentTarget.style.color = '#5A5550')}
+              onMouseOut={e => (e.currentTarget.style.color = '#6B5B5B')}
             >
               {article.sourceName}
             </a>
@@ -124,7 +124,7 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
               style={{
                 fontFamily: 'var(--font-inter)',
                 lineHeight: '1.85',
-                color: '#2D2820',
+                color: '#3D2424',
                 fontSize: isFeature ? '17px' : '15px',
               }}
             >
@@ -159,7 +159,7 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
                 <li
                   key={index}
                   className="flex gap-3"
-                  style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: '#3D3830', lineHeight: '1.6' }}
+                  style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: '#3D2424', lineHeight: '1.6' }}
                 >
                   {/* Diamond bullet in accent colour — more refined than a plain dot */}
                   <span
@@ -176,7 +176,7 @@ export default function ArticleCard({ article, isFeature = false }: ArticleCardP
         )}
 
         {/* ---- Footer link ---- */}
-        <div className="mt-7 pt-5" style={{ borderTop: '1px solid #EAE6DE' }}>
+        <div className="mt-7 pt-5" style={{ borderTop: '1px solid #F3E8E8' }}>
           <a
             href={article.sourceUrl}
             target="_blank"

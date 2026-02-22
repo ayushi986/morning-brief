@@ -173,7 +173,7 @@ export default function Home() {
             style={{
               fontFamily: 'var(--font-playfair)',
               fontSize: '52px',
-              color: '#C5A55A',
+              color: '#9F1239',
               marginBottom: '24px',
               opacity: 0.7,
             }}
@@ -184,7 +184,7 @@ export default function Home() {
           <h2
             style={{
               fontFamily: 'var(--font-playfair)',
-              color: '#1A1009',
+              color: '#1A0A0A',
               letterSpacing: '-0.02em',
             }}
             className="text-3xl md:text-4xl font-bold mb-4"
@@ -195,7 +195,7 @@ export default function Home() {
           <p
             style={{
               fontFamily: 'var(--font-inter)',
-              color: '#9B9590',
+              color: '#9CA3AF',
               lineHeight: '1.8',
               fontSize: '17px',
               maxWidth: '400px',
@@ -203,17 +203,17 @@ export default function Home() {
             }}
           >
             Add your newsletters below, then hit{' '}
-            <strong style={{ color: '#6B5A35' }}>New Issue</strong>{' '}
+            <strong style={{ color: '#7F0E2D' }}>New Issue</strong>{' '}
             to generate your personal digest.
           </p>
 
-          {/* Gold-accented arrow pointing down to Source Manager */}
+          {/* Rose-accented arrow pointing down to Source Manager */}
           <div className="flex items-center justify-center gap-2">
-            <div className="h-px w-8" style={{ background: 'linear-gradient(to right, transparent, #C5A55A)' }} />
+            <div className="h-px w-8" style={{ background: 'linear-gradient(to right, transparent, #9F1239)' }} />
             <p
               style={{
                 fontFamily: 'var(--font-inter)',
-                color: '#C5A55A',
+                color: '#9F1239',
                 fontSize: '11px',
                 letterSpacing: '0.25em',
               }}
@@ -221,7 +221,7 @@ export default function Home() {
             >
               ↓ Start below
             </p>
-            <div className="h-px w-8" style={{ background: 'linear-gradient(to left, transparent, #C5A55A)' }} />
+            <div className="h-px w-8" style={{ background: 'linear-gradient(to left, transparent, #9F1239)' }} />
           </div>
         </div>
       )}
@@ -234,8 +234,8 @@ export default function Home() {
       {/* ---- Prompt to hit New Issue (sources added but no digest yet) ---- */}
       {!isLoading && !digest && !hasNoSources && (
         <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-          <p style={{ fontFamily: 'var(--font-inter)', color: '#9B9590', fontSize: '15px' }}>
-            Hit <strong style={{ color: '#6B5A35' }}>New Issue</strong> to generate your first digest.
+          <p style={{ fontFamily: 'var(--font-inter)', color: '#9CA3AF', fontSize: '15px' }}>
+            Hit <strong style={{ color: '#7F0E2D' }}>New Issue</strong> to generate your first digest.
           </p>
         </div>
       )}

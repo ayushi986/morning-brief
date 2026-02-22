@@ -60,38 +60,38 @@ export default function SourceManager({
   }
 
   // The 6 accent colours — same palette as the article cards
-  const ACCENT_COLORS = ['#E85D4A', '#3B82F6', '#16A34A', '#D97706', '#7C3AED', '#0E7490'];
+  const ACCENT_COLORS = ['#B45309', '#1D4ED8', '#15803D', '#6D28D9', '#0F766E', '#92400E'];
 
   return (
     <div className="max-w-4xl mx-auto px-6">
 
       {/* ---- Toggle button ---- */}
       {/* Sits quietly below the content; only the gold colour gives it presence */}
-      <div className="text-center py-6" style={{ borderTop: '1px solid #EAE6DE' }}>
+      <div className="text-center py-6" style={{ borderTop: '1px solid #F3E8E8' }}>
         <button
           onClick={() => setIsOpen(!isOpen)}
           style={{ fontFamily: 'var(--font-inter)' }}
           className="group inline-flex items-center gap-2 cursor-pointer transition-all duration-200"
         >
           {/* Gold diamond ornament */}
-          <span style={{ color: '#C5A55A', fontSize: '8px', transition: 'transform 0.2s' }}>
+          <span style={{ color: '#9F1239', fontSize: '8px', transition: 'transform 0.2s' }}>
             {isOpen ? '◆' : '◇'}
           </span>
           <span
             style={{
               fontSize: '10px',
               letterSpacing: '0.2em',
-              color: '#9B9590',
+              color: '#9CA3AF',
               textTransform: 'uppercase',
             }}
-            className="group-hover:text-[#6B5A35] transition-colors"
+            className="group-hover:text-[#7F0E2D] transition-colors"
           >
             {isOpen
               ? 'Hide Sources'
               : `Manage Sources${newsletterUrls.length > 0 ? ` (${newsletterUrls.length})` : ''}`
             }
           </span>
-          <span style={{ color: '#C5A55A', fontSize: '8px' }}>
+          <span style={{ color: '#9F1239', fontSize: '8px' }}>
             {isOpen ? '◆' : '◇'}
           </span>
         </button>
@@ -102,36 +102,36 @@ export default function SourceManager({
         <div
           className="mb-12 p-7 md:p-9"
           style={{
-            background: 'linear-gradient(135deg, #F7F3EB 0%, #F2EDE3 100%)',
-            border: '1px solid #E0D8C8',
+            background: 'linear-gradient(135deg, #FEF6F6 0%, #FBF0F0 100%)',
+            border: '1px solid #F3E8E8',
             boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
           }}
         >
           {/* Panel header — flanked by gradient rules, gold text */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, transparent, #C5A55A)' }} />
+            <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, transparent, #9F1239)' }} />
             <h3
               style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize: '10px',
                 letterSpacing: '0.25em',
-                color: '#8B6914',
+                color: '#7F0E2D',
               }}
               className="uppercase font-semibold whitespace-nowrap"
             >
               ◆ Your Newsletters ◆
             </h3>
-            <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, transparent, #C5A55A)' }} />
+            <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, transparent, #9F1239)' }} />
           </div>
 
           {/* Explanation */}
           <p
-            style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#6B6050', lineHeight: '1.7' }}
+            style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#6B5B5B', lineHeight: '1.7' }}
             className="mb-6 max-w-lg"
           >
             Paste the homepage URL of any newsletter you follow — Substack, Beehiiv, Ghost, or any public newsletter site.
             We&apos;ll automatically find and read the latest issue each time you hit{' '}
-            <strong style={{ color: '#4A3A20' }}>New Issue</strong>.
+            <strong style={{ color: '#2D1515' }}>New Issue</strong>.
           </p>
 
           {/* Input + Add button */}
@@ -145,15 +145,15 @@ export default function SourceManager({
               style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize: '14px',
-                border: '1px solid #D8D0C0',
-                background: '#FDFAF4',
-                color: '#2D2010',
+                border: '1px solid #F3E8E8',
+                background: '#FFFAFA',
+                color: '#1A0A0A',
                 flex: 1,
                 padding: '10px 14px',
                 outline: 'none',
               }}
-              onFocus={e => (e.currentTarget.style.borderColor = '#C5A55A')}
-              onBlur={e => (e.currentTarget.style.borderColor = '#D8D0C0')}
+              onFocus={e => (e.currentTarget.style.borderColor = '#9F1239')}
+              onBlur={e => (e.currentTarget.style.borderColor = '#F3E8E8')}
             />
             <button
               onClick={addNewsletter}
@@ -161,9 +161,9 @@ export default function SourceManager({
                 fontFamily: 'var(--font-inter)',
                 fontSize: '10px',
                 letterSpacing: '0.15em',
-                border: '1px solid #C5A55A',
-                color: '#8B6914',
-                background: 'linear-gradient(135deg, #FEFCF5 0%, #FDF6E3 100%)',
+                border: '1px solid #9F1239',
+                color: '#7F0E2D',
+                background: 'linear-gradient(135deg, #FFFAFA 0%, #FEF2F4 100%)',
                 padding: '10px 18px',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
@@ -171,12 +171,12 @@ export default function SourceManager({
                 transition: 'all 0.2s',
               }}
               onMouseOver={e => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #C5A55A 0%, #A8893D 100%)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #9F1239 0%, #7F0E2D 100%)';
                 e.currentTarget.style.color = 'white';
               }}
               onMouseOut={e => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #FEFCF5 0%, #FDF6E3 100%)';
-                e.currentTarget.style.color = '#8B6914';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #FFFAFA 0%, #FEF2F4 100%)';
+                e.currentTarget.style.color = '#7F0E2D';
               }}
             >
               Add
@@ -186,7 +186,7 @@ export default function SourceManager({
           {/* List of saved newsletters */}
           {newsletterUrls.length === 0 ? (
             <p
-              style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#B0AAA0', fontStyle: 'italic' }}
+              style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#9CA3AF', fontStyle: 'italic' }}
             >
               No newsletters added yet. Paste a URL above to get started.
             </p>
@@ -205,7 +205,7 @@ export default function SourceManager({
 
                     {/* Domain name */}
                     <span
-                      style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#4A3A20', flex: 1 }}
+                      style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#2D1515', flex: 1 }}
                       className="truncate"
                       title={url}
                     >
@@ -220,7 +220,7 @@ export default function SourceManager({
                         fontFamily: 'var(--font-inter)',
                         fontSize: '16px',
                         lineHeight: 1,
-                        color: '#C8C0B4',
+                        color: '#D4B0B8',
                         cursor: 'pointer',
                         background: 'none',
                         border: 'none',
@@ -228,8 +228,8 @@ export default function SourceManager({
                         transition: 'color 0.15s',
                         flexShrink: 0,
                       }}
-                      onMouseOver={e => (e.currentTarget.style.color = '#E85D4A')}
-                      onMouseOut={e => (e.currentTarget.style.color = '#C8C0B4')}
+                      onMouseOver={e => (e.currentTarget.style.color = '#9F1239')}
+                      onMouseOut={e => (e.currentTarget.style.color = '#D4B0B8')}
                     >
                       ×
                     </button>
@@ -244,7 +244,7 @@ export default function SourceManager({
             style={{
               fontFamily: 'var(--font-inter)',
               fontSize: '11px',
-              color: '#B0AAA0',
+              color: '#9CA3AF',
               marginTop: '20px',
               letterSpacing: '0.03em',
             }}

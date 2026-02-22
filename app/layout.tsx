@@ -5,23 +5,26 @@
 // We set up fonts here, global metadata, and the background colour.
 
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { EB_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-// Playfair Display is our headline font — a classic editorial serif.
-// You see this kind of font in Vogue, The Atlantic, The New Yorker.
-// It gives our magazine that "quality publication" feel.
-const playfair = Playfair_Display({
+// EB Garamond is our headline font — from the same Garamond family as Adobe Garamond Pro,
+// which is the font Vogue uses. It has beautiful high-contrast thin and thick strokes
+// that feel elegant, refined, and distinctly editorial. Much sharper than Playfair Display.
+const playfair = EB_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",  // This creates a CSS variable we can use anywhere
-  display: "swap",              // "swap" means show fallback text while font loads (no invisible text)
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",  // We keep the same CSS variable name — nothing else needs to change
+  display: "swap",
 });
 
-// Inter is our body font — clean, modern, easy to read at any size.
-// It's the font used by many well-designed products (Linear, Vercel, etc.)
-const inter = Inter({
+// DM Sans is our body and label font — lightweight, geometric, very clean.
+// It's closer to the refined label style you see in Vogue ("BY AUTHOR NAME") than Inter is.
+const inter = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter",     // Same variable name as before — all components keep working
   display: "swap",
 });
 

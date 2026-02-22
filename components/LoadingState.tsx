@@ -47,7 +47,7 @@ export default function LoadingState() {
             key={i}
             className="w-2.5 h-2.5 rounded-full"
             style={{
-              backgroundColor: '#C5A55A',  // Warm gold — matches the button accent
+              backgroundColor: '#9F1239',  // Warm gold — matches the button accent
               animation: `pulse-slow 1.5s ease-in-out infinite`,
               animationDelay: `${i * 0.25}s`,
             }}
@@ -58,16 +58,16 @@ export default function LoadingState() {
       {/* The "press" decorative element — a thin horizontal rule with a small ornament.
           Evokes the feeling of a printing press running. */}
       <div className="flex items-center gap-3 mb-8 w-full max-w-xs">
-        <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, transparent, #C5A55A)' }} />
-        <span style={{ color: '#C5A55A', fontSize: '10px' }}>◆</span>
-        <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, transparent, #C5A55A)' }} />
+        <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, transparent, #9F1239)' }} />
+        <span style={{ color: '#9F1239', fontSize: '10px' }}>◆</span>
+        <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, transparent, #9F1239)' }} />
       </div>
 
       {/* Main status headline — changes every 5 seconds, big Playfair serif */}
       <h2
         style={{
           fontFamily: 'var(--font-playfair)',
-          color: '#1A1009',
+          color: '#1A0A0A',
           letterSpacing: '-0.01em',
         }}
         className="text-3xl md:text-4xl font-bold text-center mb-3 transition-all duration-500"
@@ -79,7 +79,7 @@ export default function LoadingState() {
       <p
         style={{
           fontFamily: 'var(--font-inter)',
-          color: '#9B9590',
+          color: '#9CA3AF',
           lineHeight: '1.7',
           fontSize: '15px',
         }}
@@ -96,7 +96,7 @@ export default function LoadingState() {
             className="h-1.5 rounded-full transition-all duration-500"
             style={{
               width: i === messageIndex ? '24px' : '8px',
-              backgroundColor: i <= messageIndex ? '#C5A55A' : '#E0D8C8',
+              backgroundColor: i <= messageIndex ? '#9F1239' : '#F3E8E8',
             }}
           />
         ))}
@@ -106,7 +106,7 @@ export default function LoadingState() {
       <p
         style={{
           fontFamily: 'var(--font-inter)',
-          color: '#B0AAA4',
+          color: '#9CA3AF',
           fontSize: '12px',
           letterSpacing: '0.05em',
         }}

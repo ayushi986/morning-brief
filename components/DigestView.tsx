@@ -24,7 +24,7 @@ export default function DigestView({ digest }: DigestViewProps) {
   if (!articles || articles.length === 0) {
     return (
       <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-        <p style={{ fontFamily: 'var(--font-inter)', color: '#9B9590' }}>
+        <p style={{ fontFamily: 'var(--font-inter)', color: '#9CA3AF' }}>
           No articles were generated. Try adding more sources and refreshing.
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function DigestView({ digest }: DigestViewProps) {
         className="mb-10"
         style={{
           height: '1px',
-          background: 'linear-gradient(to right, transparent, #D0C8B4 20%, #D0C8B4 80%, transparent)',
+          background: 'linear-gradient(to right, transparent, #F3E8E8 20%, #F3E8E8 80%, transparent)',
         }}
       />
 
@@ -53,19 +53,19 @@ export default function DigestView({ digest }: DigestViewProps) {
 
         {/* Section header — "Today's Reading" with flanking rules */}
         <div className="flex items-center gap-4 mb-8">
-          <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, transparent, #D0C8B4)' }} />
+          <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, transparent, #D4B8BE)' }} />
           <p
             style={{
               fontFamily: 'var(--font-inter)',
               fontSize: '10px',
               letterSpacing: '0.25em',
-              color: '#9B9590',
+              color: '#9CA3AF',
             }}
             className="uppercase font-medium whitespace-nowrap"
           >
             Today&apos;s Reading
           </p>
-          <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, transparent, #D0C8B4)' }} />
+          <div className="h-px flex-1" style={{ background: 'linear-gradient(to left, transparent, #D4B8BE)' }} />
         </div>
 
         {/* The article grid — 2 columns on desktop, 1 on mobile */}
@@ -107,7 +107,7 @@ export default function DigestView({ digest }: DigestViewProps) {
             style={{
               fontFamily: 'var(--font-playfair)',
               fontSize: '28px',
-              color: '#C5A55A',
+              color: '#9F1239',
               marginBottom: '16px',
               opacity: 0.6,
             }}
@@ -120,7 +120,7 @@ export default function DigestView({ digest }: DigestViewProps) {
               fontFamily: 'var(--font-inter)',
               fontSize: '11px',
               letterSpacing: '0.15em',
-              color: '#B0AAA4',
+              color: '#9CA3AF',
             }}
             className="uppercase"
           >
@@ -129,14 +129,14 @@ export default function DigestView({ digest }: DigestViewProps) {
               hour: '2-digit',
               minute: '2-digit',
             })}
-            <span className="mx-2" style={{ color: '#D0C8B4' }}>·</span>
+            <span className="mx-2" style={{ color: '#D4B8BE' }}>·</span>
             {articles.length} {articles.length === 1 ? 'source' : 'sources'}
-            <span className="mx-2" style={{ color: '#D0C8B4' }}>·</span>
+            <span className="mx-2" style={{ color: '#D4B8BE' }}>·</span>
             Edition {digest.editionNumber}
           </p>
 
           <p
-            style={{ fontFamily: 'var(--font-playfair)', color: '#C5B9A5', fontSize: '20px' }}
+            style={{ fontFamily: 'var(--font-playfair)', color: '#C4909A', fontSize: '20px' }}
             className="mt-3 italic"
           >
             — fin —

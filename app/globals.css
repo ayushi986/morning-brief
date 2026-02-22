@@ -10,11 +10,11 @@
    These are like named paint colours — define them once, use everywhere. */
 /* ------------------------------------------------------------------ */
 :root {
-  /* The warm off-white that feels like quality magazine paper — slightly warmer than before */
-  --background: #F8F4EE;
+  /* Pure white — clean and fresh, like the pages of Vogue */
+  --background: #FFFFFF;
 
-  /* Rich near-black for text — a warm brown-black, not harsh pure black */
-  --foreground: #1A1009;
+  /* Rich near-black for text — very slightly rose-tinted, not harsh pure black */
+  --foreground: #1A0A0A;
 
   /* Our headline font variable (set up in layout.tsx) */
   --font-heading: var(--font-playfair);
@@ -22,14 +22,14 @@
   /* Our body font variable (set up in layout.tsx) */
   --font-body: var(--font-inter);
 
-  /* Warm grey for secondary text (bylines, captions, metadata) */
-  --text-muted: #9B9590;
+  /* Cool grey for secondary text (bylines, captions, metadata) */
+  --text-muted: #9CA3AF;
 
-  /* Warm border colour for dividers and card edges */
-  --border: #EAE6DE;
+  /* Pale blush border colour for dividers and card edges */
+  --border: #F3E8E8;
 
-  /* Gold accent used on buttons and highlights */
-  --accent-gold: #C5A55A;
+  /* Deep rose accent — replaces the old gold */
+  --accent-rose: #9F1239;
 }
 
 /* ------------------------------------------------------------------ */
@@ -47,10 +47,10 @@ body {
   line-height: 1.7;
   margin: 0;
   padding: 0;
-  /* Very subtle paper texture via a repeating gradient pattern */
+  /* Very subtle tint via a repeating gradient pattern — barely perceptible on white */
   background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(197, 165, 90, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(197, 165, 90, 0.02) 0%, transparent 60%);
+    radial-gradient(ellipse at 20% 50%, rgba(159, 18, 57, 0.02) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(159, 18, 57, 0.01) 0%, transparent 60%);
   background-attachment: fixed;
 }
 
